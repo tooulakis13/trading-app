@@ -1,0 +1,17 @@
+
+services:
+  app:
+    image: openjdk:17
+    container_name: trading-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["java", "-jar", "target/trading-app-1.0.0.jar"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+    ports:
+      - "8080:8080"
