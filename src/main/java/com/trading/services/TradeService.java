@@ -79,6 +79,6 @@ public class TradeService {
     }
 
     public List<Trade> getAllTrades() {
-        return tradeRepository.findAll().stream().toList();
+        return tradeRepository.findAll();
     }
 }
